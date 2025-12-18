@@ -18,4 +18,3 @@ Register Property → Geo-Sequencing → Survey → Data Processing → Quality 
 4. database/04_stored_procedures
 5. database/05_views
 
-it.prajvalb@sthapatya.in
