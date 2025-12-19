@@ -6,8 +6,8 @@ CREATE TABLE PTIS.PropertyAssessment (
     CurrentStatusHistoryId BIGINT NOT NULL,
 
     CreatedOn DATETIME2(3) DEFAULT SYSUTCDATETIME(),
-    CreatedBy VARCHAR(100),
+    CreatedBy int,
 
     LastUpdatedOn DATETIME2(3) DEFAULT SYSUTCDATETIME(),
-    LastUpdatedBy VARCHAR(100)
+    LastUpdatedBy int
 );

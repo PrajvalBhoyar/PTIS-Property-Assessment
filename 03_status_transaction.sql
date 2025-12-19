@@ -6,7 +6,7 @@ CREATE TABLE PTIS.PropertyAssessmentStatusTxn (
     StartedOn DATETIME2(3) DEFAULT SYSUTCDATETIME(),
     CompletedOn DATETIME2(3) NULL,
 
-    PerformedBy VARCHAR(100),
+    PerformedBy int,
     Remarks VARCHAR(500),
 
     SurveyorName VARCHAR(100),

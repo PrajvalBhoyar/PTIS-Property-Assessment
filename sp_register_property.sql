@@ -1,7 +1,7 @@
 CREATE PROCEDURE PTIS.sp_RegisterProperty
 (
     @OwnerID BIGINT,
-    @UserName VARCHAR(100)
+    @UserID int
 )
 AS
 BEGIN
@@ -10,12 +10,12 @@ BEGIN
     INSERT INTO PTIS.PropertyAssessmentStatusTxn
     (OwnerID, StatusCode, PerformedBy)
     VALUES
-    (@OwnerID, 'Register Property', @UserName);
+    (@OwnerID, 'Register Property', @UserID);
 
     DECLARE @HistoryId BIGINT = SCOPE_IDENTITY();
 
     INSERT INTO PTIS.PropertyAssessment
     (OwnerID, CurrentStatusCode, CurrentStatusHistoryId, CreatedBy)
     VALUES
-    (@OwnerID, 'Register Property', @HistoryId, @UserName);
+    (@OwnerID, 'Register Property', @HistoryId, @UserID);
 END;

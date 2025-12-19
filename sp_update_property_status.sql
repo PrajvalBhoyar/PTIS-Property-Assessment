@@ -2,7 +2,7 @@ CREATE PROCEDURE PTIS.sp_UpdatePropertyStatus
 (
     @OwnerID BIGINT,
     @NewStatusCode VARCHAR(50),
-    @UserName VARCHAR(100),
+    @UserID int,
     @Remarks VARCHAR(500) = NULL
 )
 AS
@@ -38,7 +38,7 @@ BEGIN
     INSERT INTO PTIS.PropertyAssessmentStatusTxn
     (OwnerID, StatusCode, PerformedBy, Remarks)
     VALUES
-    (@OwnerID, @NewStatusCode, @UserName, @Remarks);
+    (@OwnerID, @NewStatusCode, @UserID, @Remarks);
 
     DECLARE @NewHistoryId BIGINT = SCOPE_IDENTITY();
 
@@ -46,7 +46,7 @@ BEGIN
     SET CurrentStatusCode = @NewStatusCode,
         CurrentStatusHistoryId = @NewHistoryId,
         LastUpdatedOn = SYSUTCDATETIME(),
-        LastUpdatedBy = @UserName
+        LastUpdatedBy = @UserID
     WHERE OwnerID = @OwnerID;
 
     COMMIT;
